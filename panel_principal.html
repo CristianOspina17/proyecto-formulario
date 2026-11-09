@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Principal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Panel Principal</h1>
+
+    <div class="box">
+        <h3>Agregar materias</h3>
+
+        <form action="guardar-materias.php" method="POST">
+            
+            <button type="button" class="btn-agregar" onclick="agregarMateria()">+ Agregar</button>
+
+            <div id="contenedorMaterias"></div>
+
+            <br>
+            <button type="submit">Guardar</button>
+
+        </form>
+
+    </div>
+</div>
+
+
+<script>
+function agregarMateria() {
+    let contenedor = document.getElementById("contenedorMaterias");
+
+    let div = document.createElement("div");
+    div.classList.add("materia");
+    div.innerHTML = `
+    <input type="text" name="nombre[]" placeholder="Nombre de la materia" required>
+    <input type="number" name="nota[]" placeholder="Nota (0-5)" required>
+    <input type="number" name="porcentaje[]" placeholder="Porcentaje (%)" required>
+    <br><br>
+`;
+
+    contenedor.appendChild(div);
+}
+</script>
+
+</body>
+</html>
